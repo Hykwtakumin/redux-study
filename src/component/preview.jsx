@@ -1,9 +1,7 @@
 /* eslint-disable react/no-danger */
 
 import React from "react";
-import {Component, getStore} from "../store";
-
-const store = getStore();
+import {Component} from "../store";
 
 import MarkdownIt from "markdown-it";
 const markdown = new MarkdownIt();
