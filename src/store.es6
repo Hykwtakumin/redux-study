@@ -1,15 +1,18 @@
 import React from "react";
-import {createStore} from "redux";
+import {createStore, applyMiddleware} from "redux";
 import reducer from "./reducer/";
 import Debug from "debug";
 
+import {logger, saveLocalStorage, loadLocalStorage} from "./middleware/";
+
 const store = createStore(
   reducer,
-  {
+  (loadLocalStorage() || {
     editor: {
       text: ""
     }
-  }
+  }),
+  applyMiddleware(logger, saveLocalStorage)
 );
 
 export function getStore(){
