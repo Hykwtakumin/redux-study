@@ -3,7 +3,7 @@ import {createStore, applyMiddleware} from "redux";
 import reducer from "./reducer/";
 import Debug from "debug";
 
-import {logger, saveLocalStorage, loadLocalStorage} from "./middleware/";
+import {m1, m2, logger, saveLocalStorage, loadLocalStorage} from "./middleware/";
 
 const store = createStore(
   reducer,
@@ -12,7 +12,7 @@ const store = createStore(
       text: ""
     }
   }),
-  applyMiddleware(logger, saveLocalStorage)
+  applyMiddleware(logger, m1, m2, saveLocalStorage)
 );
 
 export function getStore(){
