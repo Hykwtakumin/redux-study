@@ -5,6 +5,7 @@
   "description": "redux study",
   "scripts": {
     "eslint": "eslint src/{*,**/*}.{es6,jsx}",
+    "test": "npm run eslint",
     "browserify": "browserify --verbose --debug --extension=.jsx --extension=.es6 -t [ babelify ] -t [ stylify ] src/index.es6 | uglifyjs -o dist/index.js",
     "watchify": "watchify --verbose --debug --extension=.jsx --extension=.es6 -t [ babelify ] -t [ stylify ] src/index.es6 -o dist/index.js",
     "watch": "parallelshell 'chokidar \"src/**.{es6,jsx}\" -c \"npm run eslint\"' 'npm run watchify'",
@@ -39,5 +40,14 @@
     "eslint-plugin-react": "^4.3.0",
     "parallelshell": "^2.0.0",
     "watchify": "^3.7.0"
-  }
+  },
+  "main": "src/index.es6",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shokai/redux-study.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shokai/redux-study/issues"
+  },
+  "homepage": "https://github.com/shokai/redux-study#readme"
 }
