@@ -5,7 +5,7 @@ import {Component, store} from "../store";
 export default class Editor extends Component{
 
   mapState(state){
-    return state.editor;
+    return {editor: state.editor};
   }
 
   constructor(){
@@ -17,7 +17,7 @@ export default class Editor extends Component{
     return (
       <div className="editor">
         <h2>editor</h2>
-        <textarea value={this.state.text} onChange={this.onChange} />
+        <textarea value={this.state.editor.text} onChange={this.onChange} />
       </div>
     );
   }

@@ -8,11 +8,11 @@ const markdown = new MarkdownIt();
 
 export default class Preview extends Component{
   mapState(state){
-    return state.editor;
+    return {editor: state.editor};
   }
 
   render(){
-    const __html = markdown.render(this.state.text);
+    const __html = markdown.render(this.state.editor.text);
     return (
       <div className="preview">
         <h2>preview</h2>
