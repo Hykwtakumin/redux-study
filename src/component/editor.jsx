@@ -1,8 +1,6 @@
 import React from "react";
 
-import {Component, getStore} from "../store";
-
-const store = getStore();
+import {Component, store} from "../store";
 
 export default class Editor extends Component{
 

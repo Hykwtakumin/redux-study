@@ -5,7 +5,7 @@ import Debug from "debug";
 
 import {m1, m2, logger, saveLocalStorage, loadLocalStorage} from "./middleware/";
 
-const store = createStore(
+export const store = createStore(
   reducer,
   (loadLocalStorage() || {
     editor: {
@@ -14,10 +14,6 @@ const store = createStore(
   }),
   applyMiddleware(logger, m1, m2, saveLocalStorage)
 );
-
-export function getStore(){
-  return store;
-}
 
 export class Component extends React.Component{
 
