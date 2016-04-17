@@ -44,4 +44,5 @@ export function loadLocalStorage(){
   catch(err){
     console.error(err);
   }
+  return null;
 }
