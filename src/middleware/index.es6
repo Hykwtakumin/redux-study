@@ -28,14 +28,14 @@ export const m1 = store => next => async (action) => {
   const result = next(action);
   console.log("m1 end");
   return result;
-}
+};
 
 export const m2 = store => next => action => {
   console.log("m2 start");
   const result = next(action);
   console.log("m2 end");
   return result;
-}
+};
 
 export function loadLocalStorage(){
   try{
