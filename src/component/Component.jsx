@@ -23,7 +23,8 @@ export default class Component extends React.Component{
          this.state[k] !== nextState[k]) return true;
     }
     for(let k in nextProps){
-      if(typeof nextProps[k] === "object" ||
+      if(k !== "store" &&
+         typeof nextProps[k] === "object" ||
          this.props[k] !== nextProps[k]) return true;
     }
     this.debug("shouldNotComponentUpdate");
