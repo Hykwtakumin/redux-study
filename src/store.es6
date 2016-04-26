@@ -16,8 +16,6 @@ export const store = createStore(
   applyMiddleware(logger, m1, m2, saveLocalStorage)
 );
 
-const actions = bindActionCreators(Actions, store.dispatch);
-
 export class Component extends React.Component{
 
   mapState(state){
@@ -56,7 +54,7 @@ export class Component extends React.Component{
     this.debug = Debug("component:" + this.constructor.name.toLowerCase());
     this.debug("constructor()");
     this.state = this.mapState(store.getState());
-    this.actions = actions;
+    this.actions = bindActionCreators(Actions, store.dispatch);
   }
 
 }
