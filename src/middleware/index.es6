@@ -6,9 +6,8 @@ function delay(msec){
 
 const log = require("debug")("middleware:logger");
 export const logger = store => next => action => {
-  log(`action.type = ${action.type}`);
   const result = next(action);
-  log(store.getState());
+  log(`action.type = ${action.type}`, store.getState());
   return result;
 };
 

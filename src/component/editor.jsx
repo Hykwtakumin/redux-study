@@ -1,11 +1,12 @@
-import React from "react";
-
-import {Component, store} from "../store";
+import React, {Component} from "react";
 
 export default class Editor extends Component{
 
-  mapState(state){
-    return {editor: state.editor};
+  static get propTypes(){
+    return {
+      text: React.PropTypes.string.isRequired,
+      onChange: React.PropTypes.func.isRequired
+    };
   }
 
   constructor(){
@@ -17,12 +18,14 @@ export default class Editor extends Component{
     return (
       <div className="editor">
         <h2>editor</h2>
-        <textarea value={this.state.editor.text} onChange={this.onChange} />
+        <textarea value={this.props.text} onChange={this.onChange} />
       </div>
     );
   }
 
   onChange(e){
-    store.dispatch({type: "editor:change", value: e.target.value});
+    console.log(e.target.value);
+    this.props.onChange(e.target.value);
+    // store.dispatch({type: "editor:change", value: e.target.value});
   }
 }

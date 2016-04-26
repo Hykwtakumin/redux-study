@@ -4,5 +4,5 @@ export default function editorReducer(state = {}, action){
     state.text = action.value;
     break;
   }
-  return state;
+  return Object.assign({}, state);
 }
