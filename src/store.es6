@@ -1,6 +1,7 @@
 import React from "react";
-import {createStore, applyMiddleware} from "redux";
+import {createStore, applyMiddleware, bindActionCreators} from "redux";
 import reducer from "./reducer/";
+import * as Actions from "./action/";
 import Debug from "debug";
 
 import {m1, m2, logger, saveLocalStorage, loadLocalStorage} from "./middleware/";
@@ -14,6 +15,8 @@ export const store = createStore(
   }),
   applyMiddleware(logger, m1, m2, saveLocalStorage)
 );
+
+const actions = bindActionCreators(Actions, store.dispatch);
 
 export class Component extends React.Component{
 
@@ -53,6 +56,7 @@ export class Component extends React.Component{
     this.debug = Debug("component:" + this.constructor.name.toLowerCase());
     this.debug("constructor()");
     this.state = this.mapState(store.getState());
+    this.actions = actions;
   }
 
 }

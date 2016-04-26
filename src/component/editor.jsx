@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Component, store} from "../store";
+import {Component} from "../store";
 
 export default class Editor extends Component{
 
@@ -23,6 +23,6 @@ export default class Editor extends Component{
   }
 
   onChange(e){
-    store.dispatch({type: "editor:change", value: e.target.value});
+    this.actions.updateText(e.target.value);
   }
 }
