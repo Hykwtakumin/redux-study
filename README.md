@@ -1,5 +1,5 @@
 # redux study
 
     % npm i
-    % npm run browserify
+    % npm run build
     % npm run watch

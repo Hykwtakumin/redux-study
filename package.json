@@ -6,7 +6,7 @@
   "scripts": {
     "eslint": "eslint src/{*,**/*}.{es6,jsx}",
     "test": "npm run eslint",
-    "browserify": "browserify --verbose --debug --extension=.jsx --extension=.es6 -t [ babelify ] src/index.es6 | uglifyjs -o dist/index.js",
+    "browserify": "browserify --verbose --extension=.jsx --extension=.es6 -t [ babelify ] -g uglifyify src/index.es6 -o dist/index.js",
     "watchify": "watchify --verbose --debug --extension=.jsx --extension=.es6 -t [ babelify ] src/index.es6 -o dist/index.js",
     "stylus": "stylus src/styl/index.styl -o dist/index.css",
     "build": "npm run browserify && npm run stylus",
@@ -31,7 +31,8 @@
     "react-dom": "^15.0.1",
     "reactify": "^1.1.1",
     "redux": "^3.4.0",
-    "stylus": "^0.54.2"
+    "stylus": "^0.54.2",
+    "uglifyify": "^3.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.2",
