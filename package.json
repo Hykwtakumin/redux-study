@@ -6,9 +6,11 @@
   "scripts": {
     "eslint": "eslint src/{*,**/*}.{es6,jsx}",
     "test": "npm run eslint",
-    "browserify": "browserify --verbose --debug --extension=.jsx --extension=.es6 -t [ babelify ] -t [ stylify ] src/index.es6 | uglifyjs -o dist/index.js",
-    "watchify": "watchify --verbose --debug --extension=.jsx --extension=.es6 -t [ babelify ] -t [ stylify ] src/index.es6 -o dist/index.js",
-    "watch": "parallelshell 'chokidar \"src/**.{es6,jsx}\" -c \"npm run eslint\"' 'npm run watchify'",
+    "browserify": "browserify --verbose --debug --extension=.jsx --extension=.es6 -t [ babelify ] src/index.es6 | uglifyjs -o dist/index.js",
+    "watchify": "watchify --verbose --debug --extension=.jsx --extension=.es6 -t [ babelify ] src/index.es6 -o dist/index.js",
+    "stylus": "stylus src/styl/index.styl -o dist/index.css",
+    "build": "npm run browserify && npm run stylus",
+    "watch": "parallelshell 'chokidar \"src/**.{es6,jsx}\" -c \"npm run eslint\"' 'npm run watchify' 'npm run stylus -- --watch'",
     "clean": "rm -rf dist/"
   },
   "keywords": [
@@ -24,13 +26,12 @@
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",
     "debug": "^2.2.0",
-    "insert-css": "^0.2.0",
     "markdown-it": "^6.0.1",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "reactify": "^1.1.1",
     "redux": "^3.4.0",
-    "stylify": "^1.3.1"
+    "stylus": "^0.54.2"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.2",
