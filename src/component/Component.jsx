@@ -4,7 +4,7 @@ import {bindActionCreators} from "redux";
 import * as Actions from "../action/";
 import Debug from "debug";
 
-export default class BindComponent extends React.Component{
+export default class Component extends React.Component{
 
   mapState(state){
     return state;

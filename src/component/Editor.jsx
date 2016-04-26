@@ -1,7 +1,7 @@
 import React from "react";
-import BindComponent from "./bindcomponent";
+import Component from "./Component";
 
-export default class Editor extends BindComponent{
+export default class Editor extends Component{
 
   mapState(state){
     return {editor: state.editor};
