@@ -1,8 +1,7 @@
 import React from "react";
+import BindComponent from "./bindcomponent";
 
-import {Component} from "../store";
-
-export default class Editor extends Component{
+export default class Editor extends BindComponent{
 
   mapState(state){
     return {editor: state.editor};
@@ -23,6 +22,6 @@ export default class Editor extends Component{
   }
 
   onChange(e){
-    this.actions.updateText(e.target.value);
+    this.action.updateText(e.target.value);
   }
 }
