@@ -1,10 +1,15 @@
 import React from "react";
-import {store} from "../store";
 import {bindActionCreators} from "redux";
 import * as Actions from "../action/";
 import Debug from "debug";
 
 export default class Component extends React.Component{
+
+  static get propTypes(){
+    return {
+      store: React.PropTypes.object.isRequired
+    };
+  }
 
   mapState(state){
     return state;
@@ -32,17 +37,22 @@ export default class Component extends React.Component{
 
   componentDidMount(){
     this.debug("componentDidMount()");
-    this.unsubscribeStore = store.subscribe(() => {
-      this.setState(this.mapState(store.getState()));
+    this.unsubscribeStore = this.store.subscribe(() => {
+      this.setState(this.mapState(this.store.getState()));
     });
+  }
+
+  componentWillMount(){
+    this.debug("componentWillMount()");
+    this.store = this.props.store;
+    this.state = this.mapState(this.store.getState());
+    this.action = bindActionCreators(Actions, this.store.dispatch);
   }
 
   constructor(){
     super();
     this.debug = Debug("component:" + this.constructor.name.toLowerCase());
     this.debug("constructor()");
-    this.state = this.mapState(store.getState());
-    this.action = bindActionCreators(Actions, store.dispatch);
   }
 
 }
