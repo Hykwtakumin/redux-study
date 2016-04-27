@@ -3,7 +3,7 @@ import {bindActionCreators} from "redux";
 import * as Actions from "../action/";
 import Debug from "debug";
 
-export default class Component extends React.Component{
+export default class StoreComponent extends React.Component{
 
   static get propTypes(){
     return {

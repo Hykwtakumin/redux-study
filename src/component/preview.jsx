@@ -1,12 +1,12 @@
 /* eslint-disable react/no-danger */
 
 import React from "react";
-import Component from "./Component";
+import StoreComponent from "./store-component";
 
 import MarkdownIt from "markdown-it";
 const markdown = new MarkdownIt();
 
-export default class Preview extends Component{
+export default class Preview extends StoreComponent{
   mapState(state){
     return {editor: state.editor};
   }

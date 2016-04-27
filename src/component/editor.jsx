@@ -1,7 +1,7 @@
 import React from "react";
-import Component from "./Component";
+import StoreComponent from "./store-component";
 
-export default class Editor extends Component{
+export default class Editor extends StoreComponent{
 
   mapState(state){
     return {editor: state.editor};

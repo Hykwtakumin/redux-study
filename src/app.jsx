@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import Editor from "./component/Editor";
-import Preview from "./component/Preview";
+import Editor from "./component/editor";
+import Preview from "./component/preview";
 
 export default class App extends Component{
 
